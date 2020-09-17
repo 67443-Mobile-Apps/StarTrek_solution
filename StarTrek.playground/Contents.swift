@@ -28,29 +28,29 @@ var captains: [String: String] = ["kirk": "ncc1701", "sisko": "nx74205", "janewa
 
 var firstOfficers: [String: String] = ["spock": "ncc1701", "kira": "nx74205", "chakotay": "ncc74656", "riker": "ncc1701d", "tpol": "nx01"]
 
-var vulcans: [String] = ["spock", "tuvok", "tpol"]
+var vulcanOfficers: [String] = ["spock", "tuvok", "tpol"]
 
-var humans: [String] = ["sisko", "kirk", "picard", "chakotay", "janeway", "riker", "seven"]
+var humanOfficers: [String] = ["sisko", "kirk", "picard", "chakotay", "janeway", "riker", "seven"]
 
-var females: [String] = ["kira", "dax", "tpol", "janeway", "troi", "seven"]
+var femaleOfficers: [String] = ["kira", "dax", "tpol", "janeway", "troi", "seven"]
 
 /*:
 First, a set of warm-up problems for everyone
 */
 // Q0: How many human officers are there?
-let humanCount = humans.count
+let humanCount = humanOfficers.count
 
 // Q1: What percentage of humans are female?
-let humanFemalesCount = humans.filter{ females.contains($0) }.count
+let humanFemalesCount = humanOfficers.filter{ femaleOfficers.contains($0) }.count
 
 let percentHumanFemales = Float(humanFemalesCount)/Float(humanCount)
 
 // Q2: How many first officers are human?
-let humanFirstOfficers = firstOfficers.keys.filter{ humans.contains($0) }
+let humanFirstOfficers = firstOfficers.keys.filter{ humanOfficers.contains($0) }
 humanFirstOfficers
 
 // Q3: Get a list of females sorted by name
-let femalesSorted = females.sorted()
+let femalesSorted = femaleOfficers.sorted()
 femalesSorted
 
 /*:
@@ -93,7 +93,7 @@ print(allCaptainsAlpha.map{$0.name})
 Group 2
 */
 // Q6: Create an array of officers serving as first officers who are also Vulcan
-let vulcanFirstOfficers = firstOfficers.map{ Officer(name: $0, ship: $1) }.filter{vulcans.contains($0.name)}
+let vulcanFirstOfficers = firstOfficers.map{ Officer(name: $0, ship: $1) }.filter{vulcanOfficers.contains($0.name)}
 print(vulcanFirstOfficers.map{$0.name})
 
 // Q7: How many these Vulcan first officers have names shorter than 5 characters?
